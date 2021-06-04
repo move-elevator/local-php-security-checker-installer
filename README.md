@@ -23,6 +23,6 @@ Example in `composer.json` to run it after install:
         "local-php-security-checker-installer"
     ],
     "security-checker:show": "vendor/bin/local-php-security-checker"
-    "security-checker:check": "vendor/bin/local-php-security-checker | grep 'have known vulnerabilities'; exit 1 || exit 0"
+    "security-checker:check": "vendor/bin/local-php-security-checker | grep 'No packages have known vulnerabilities' && exit 0 || exit 1"
 }
 ```
