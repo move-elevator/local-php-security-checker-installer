@@ -1,7 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-$version = '1.0.0';
+exec('curl -Ls -o /dev/null -w %{url_effective} https://github.com/fabpot/local-php-security-checker/releases/latest', $output);
+$tag = str_replace('https://github.com/fabpot/local-php-security-checker/releases/tag/', '', $output[0]);
+$version = str_replace('v', '', $tag);
+
+echo sprintf("Download local-php-security-checker (version %s)...\n", $version);
 
 $composer = getenv('COMPOSER_BIN') ?: 'composer';
 
