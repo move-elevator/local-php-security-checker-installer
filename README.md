@@ -22,7 +22,7 @@ Example in `composer.json` to run it after install:
     "post-install-cmd": [
         "local-php-security-checker-installer"
     ],
-    "security-checker:show": "vendor/bin/local-php-security-checker"
-    "security-checker:check": "vendor/bin/local-php-security-checker | grep 'No packages have known vulnerabilities' && exit 0 || exit 1"
+    "security-checker:show": "vendor/bin/local-php-security-checker",
+    "security-checker:check": "vendor/bin/local-php-security-checker --format=markdown | grep -E '[0-9]+ packages have known vulnerabilities' && exit 1 || exit 0"
 }
 ```
